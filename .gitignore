@@ -5,3 +5,5 @@ venv/
 .venv/
 .vscode/
 .DS_Store
+reports/ejecucion.log
+reports/screenshots/
