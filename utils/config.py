@@ -2,6 +2,7 @@
 
 BASE_URL = "https://www.saucedemo.com/"
 INVENTORY_URL_FRAGMENT = "/inventory.html"
+CART_URL_FRAGMENT = "/cart.html"
 
 # Credenciales válidas de SauceDemo (sitio de práctica, son públicas)
 VALID_USER = "standard_user"
