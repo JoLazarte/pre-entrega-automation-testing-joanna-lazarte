@@ -1,0 +1,39 @@
+2026-10-06 20:41:28 [INFO] Abriendo navegador para: test_login_exitoso
+2026-10-06 20:41:29 [INFO] Iniciando sesión como 'standard_user'
+2026-10-06 20:41:30 [INFO] Esperando elemento visible: ('id', 'user-name')
+2026-10-06 20:41:30 [INFO] Esperando elemento visible: ('css selector', 'div.header_secondary_container .title')
+2026-10-06 20:41:30 [INFO] Resultado de test_login_exitoso: PASSED
+2026-10-06 20:41:30 [INFO] Cerrando navegador de: test_login_exitoso
+2026-10-06 20:41:30 [INFO] Abriendo navegador para: test_titulo_pagina_inventario
+2026-10-06 20:41:31 [INFO] Iniciando sesión como 'standard_user'
+2026-10-06 20:41:32 [INFO] Esperando elemento visible: ('id', 'user-name')
+2026-10-06 20:41:32 [INFO] Esperando elemento visible: ('class name', 'inventory_item')
+2026-10-06 20:41:32 [INFO] Esperando elemento visible: ('css selector', 'div.header_secondary_container .title')
+2026-10-06 20:41:32 [INFO] Resultado de test_titulo_pagina_inventario: PASSED
+2026-10-06 20:41:32 [INFO] Cerrando navegador de: test_titulo_pagina_inventario
+2026-10-06 20:41:32 [INFO] Abriendo navegador para: test_productos_visibles
+2026-10-06 20:41:33 [INFO] Iniciando sesión como 'standard_user'
+2026-10-06 20:41:33 [INFO] Esperando elemento visible: ('id', 'user-name')
+2026-10-06 20:41:33 [INFO] Esperando elemento visible: ('class name', 'inventory_item')
+2026-10-06 20:41:34 [INFO] Resultado de test_productos_visibles: PASSED
+2026-10-06 20:41:34 [INFO] Cerrando navegador de: test_productos_visibles
+2026-10-06 20:41:34 [INFO] Abriendo navegador para: test_elementos_interfaz_presentes
+2026-10-06 20:41:35 [INFO] Iniciando sesión como 'standard_user'
+2026-10-06 20:41:35 [INFO] Esperando elemento visible: ('id', 'user-name')
+2026-10-06 20:41:35 [INFO] Esperando elemento visible: ('class name', 'inventory_item')
+2026-10-06 20:41:36 [INFO] Resultado de test_elementos_interfaz_presentes: PASSED
+2026-10-06 20:41:36 [INFO] Cerrando navegador de: test_elementos_interfaz_presentes
+2026-10-06 20:41:36 [INFO] Abriendo navegador para: test_nombre_y_precio_del_primer_producto
+2026-10-06 20:41:37 [INFO] Iniciando sesión como 'standard_user'
+2026-10-06 20:41:37 [INFO] Esperando elemento visible: ('id', 'user-name')
+2026-10-06 20:41:37 [INFO] Esperando elemento visible: ('class name', 'inventory_item')
+2026-10-06 20:41:38 [INFO] Resultado de test_nombre_y_precio_del_primer_producto: PASSED
+2026-10-06 20:41:38 [INFO] Cerrando navegador de: test_nombre_y_precio_del_primer_producto
+2026-10-06 20:41:38 [INFO] Abriendo navegador para: test_agregar_producto_al_carrito
+2026-10-06 20:41:39 [INFO] Iniciando sesión como 'standard_user'
+2026-10-06 20:41:39 [INFO] Esperando elemento visible: ('id', 'user-name')
+2026-10-06 20:41:39 [INFO] Esperando elemento visible: ('class name', 'inventory_item')
+2026-10-06 20:41:40 [INFO] Esperando elemento visible: ('class name', 'shopping_cart_badge')
+2026-10-06 20:41:40 [INFO] Esperando elemento visible: ('class name', 'cart_item')
+2026-10-06 20:41:40 [INFO] Resultado de test_agregar_producto_al_carrito: PASSED
+2026-10-06 20:41:40 [INFO] Cerrando navegador de: test_agregar_producto_al_carrito
