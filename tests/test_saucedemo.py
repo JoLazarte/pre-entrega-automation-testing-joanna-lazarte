@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
-from utils.config import EXPLICIT_WAIT_SECONDS, INVENTORY_URL_FRAGMENT
+from utils.config import CART_URL_FRAGMENT, EXPLICIT_WAIT_SECONDS, INVENTORY_URL_FRAGMENT
 from utils.helpers import esperar_visible, login
 
 
@@ -90,3 +90,40 @@ def test_nombre_y_precio_del_primer_producto(driver_logueado):
     assert nombre != "", "El nombre del primer producto está vacío"
     assert precio.startswith("$"), f"El precio no tiene el formato esperado: '{precio}'"
     print(f"Primer producto: {nombre} - {precio}")
+
+@pytest.mark.smoke
+@pytest.mark.carrito
+def test_agregar_producto_al_carrito(driver_logueado):
+    """Agrega el primer producto, verifica el contador y lo busca dentro del carrito."""
+    driver = driver_logueado
+
+    # 1) Ubicar el primer producto y guardar su nombre para compararlo después
+    primer_producto = driver.find_elements(By.CLASS_NAME, "inventory_item")[0]
+    nombre_esperado = primer_producto.find_element(By.CLASS_NAME, "inventory_item_name").text
+
+    # 2) Agregarlo al carrito (el botón está dentro de la tarjeta del producto)
+    primer_producto.find_element(By.TAG_NAME, "button").click()
+
+    # 3) Espera explícita al badge del carrito y verificación del contador
+    badge = esperar_visible(driver, (By.CLASS_NAME, "shopping_cart_badge"))
+    assert badge.text == "1", f"El contador del carrito debería mostrar 1, pero muestra '{badge.text}'"
+
+    # 4) Navegar al carrito
+    driver.find_element(By.CLASS_NAME, "shopping_cart_link").click()
+    WebDriverWait(driver, EXPLICIT_WAIT_SECONDS).until(EC.url_contains(CART_URL_FRAGMENT))
+    assert CART_URL_FRAGMENT in driver.current_url, (
+        f"No se llegó al carrito, la URL es {driver.current_url}"
+    )
+
+    # 5) Verificar que el producto agregado aparece en el carrito
+    # Espera explícita: los ítems se renderizan después del cambio de URL
+    esperar_visible(driver, (By.CLASS_NAME, "cart_item"))
+    items_carrito = driver.find_elements(By.CLASS_NAME, "cart_item")
+    assert len(items_carrito) == 1, f"Se esperaba 1 ítem en el carrito, hay {len(items_carrito)}"
+
+    nombre_en_carrito = items_carrito[0].find_element(By.CLASS_NAME, "inventory_item_name").text
+    assert nombre_en_carrito == nombre_esperado, (
+        f"En el carrito aparece '{nombre_en_carrito}', se esperaba '{nombre_esperado}'"
+    )
+
+    print("Test OK")
